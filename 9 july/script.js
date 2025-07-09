@@ -56,5 +56,7 @@ child.addEventListener("click", () => {
   console.log("BLUE DIV CALLED");
 },true);
 
+//even listener are expensive
+
 
 //if we add true event capturing occur from top to bottom else bubbling occurs from bottom to top
