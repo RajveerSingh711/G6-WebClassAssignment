@@ -40,23 +40,38 @@ console.log("SCRIPT STARTS");
 //   console.log("THIS IS THE CONTAINER 1");
 // });
 
-const grandparent = document.getElementById("grandparent");
-const parent = document.getElementById("parent");
-const child = document.getElementById("child");
+// const grandparent = document.getElementById("grandparent");
+// const parent = document.getElementById("parent");
+// const child = document.getElementById("child");
 
-grandparent.addEventListener("click", () => {
-  console.log("RED DIV CALLED");
-},true);
+// grandparent.addEventListener("click", () => {
+//   console.log("RED DIV CALLED");
+// },true);
 
-parent.addEventListener("click", () => {
-  console.log("GREEN DIV CALLED");
-},true);
+// parent.addEventListener("click", () => {
+//   console.log("GREEN DIV CALLED");
+// },true);
 
-child.addEventListener("click", () => {
-  console.log("BLUE DIV CALLED");
-},true);
+// child.addEventListener("click", () => {
+//   console.log("BLUE DIV CALLED");
+// },true);
 
 //even listener are expensive
 
-
 //if we add true event capturing occur from top to bottom else bubbling occurs from bottom to top
+
+//event delegation reduce no of event listeners to handle nested events
+
+const unorderedList = document.getElementById("navbar");
+
+unorderedList.addEventListener("click", (event) => {
+  if (event.target.tagName === "LI") {
+    console.log(event.target.textContent);
+  }
+});
+
+const newElement = document.createElement("li");
+newElement.innerText = "Navbar";
+unorderedList.appendChild(newElement);
+
+//event deligation is the solution for multiple event listeners
