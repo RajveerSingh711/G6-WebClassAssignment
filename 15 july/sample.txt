@@ -1,0 +1,21 @@
+what is debouncing?
+to give delay for function to execute
+func-> to make search bar, like suggestion given by google search when we type on search we use debouncing to control and optimize it
+
+we use set timeout for it   
+
+
+what is node js-> Javascript run time environment, we need node js to run Javascript outside the browser or anymore
+CPU and server scripting cannot be done without node js
+node js runs on V8 engine which is built on C++
+node js runs in single process without creating for a new thread and it is asynchronous architecture
+
+
+
+microtask have more priority than macrotask 
+microtask includes promises,async-await,fetch
+macrotask includes set timeout, set interval
+
+memory heap->event loop->micro/macro->call stack
+
+Crypto in node js
