@@ -9,19 +9,25 @@ function addBlog() {
   const description = document.getElementById("description")?.value.trim();
   const category = document.getElementById("category")?.value.trim();
   const date = document.getElementById("date")?.value;
+  const url = document.getElementById("url")?.value.trim();
+  const publishedBy = document.getElementById("publishedBy")?.value.trim();
+  const author = document.getElementById("author")?.value.trim();
 
   if (!title || !description || !category || !date) {
     alert("Please fill out all required fields.");
     return;
   }
 
-  blogs.unshift({ title, description, category, date, timestamp: new Date().toISOString() });
+  blogs.unshift({ title, description, category, date, url, publishedBy, author, timestamp: new Date().toISOString() });
   saveBlogs();
 
   if (document.getElementById("title")) document.getElementById("title").value = '';
   if (document.getElementById("description")) document.getElementById("description").value = '';
   if (document.getElementById("category")) document.getElementById("category").value = '';
   if (document.getElementById("date")) document.getElementById("date").value = '';
+  if (document.getElementById("url")) document.getElementById("url").value = '';
+  if (document.getElementById("publishedBy")) document.getElementById("publishedBy").value = '';
+  if (document.getElementById("author")) document.getElementById("author").value = '';
   alert("Blog posted successfully!");
 }
 
@@ -40,9 +46,11 @@ function displayBlogs(data) {
     const div = document.createElement("div");
     div.className = "blog-card";
     div.innerHTML = `
-      <h3>${blog.title}</h3>
+      <h3>${blog.url ? `<a href='${blog.url}' target='_blank'>${blog.title}</a>` : blog.title}</h3>
       <p>${blog.description}</p>
       <div><b>Category:</b> ${blog.category} | <b>Date:</b> ${blog.date}</div>
+      ${blog.author ? `<div><b>Author:</b> ${blog.author}</div>` : ''}
+      ${blog.publishedBy ? `<div><b>Published By:</b> ${blog.publishedBy}</div>` : ''}
       <small>Posted on ${new Date(blog.timestamp).toLocaleString()}</small>
     `;
     blogList.appendChild(div);
@@ -61,6 +69,7 @@ function debounceSearch() {
     displayBlogs(filtered);
   }, 300);
 }
+
 if (document.getElementById("blogList")) {
   displayBlogs(blogs);
 }

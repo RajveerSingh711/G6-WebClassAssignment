@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - Admin Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <nav>
-        <ul class="navbar">
-            <li><a href="homePage.html" id="nav-home">Home</a></li>
-            <li><a href="blogPage.html" id="nav-blogs">Blogs</a></li>
-            <li><a href="adminPage.html" id="nav-admin">Admin</a></li>
-        </ul>
+      <ul class="navbar">
+        <li><a href="homePage.html" id="nav-home">Home</a></li>
+        <li><a href="blogPage.html" id="nav-blogs">Blogs</a></li>
+        <li><a href="adminPage.html" id="nav-admin">Admin</a></li>
+      </ul>
     </nav>
     <main>
-        <section id="admin-section" class="section active">
-            <h1>Add New Blog</h1>
-            <form id="admin-form" onsubmit="return false;">
-                <input type="text" id="title" placeholder="Blog Title" required><br>
-                <textarea id="description" placeholder="Blog Description" required></textarea><br>
-                <input type="text" id="category" placeholder="Category" required><br>
-                <input type="date" id="date" required><br>
-                <button type="button" id="addBlogBtn">Add Blog</button>
-            </form>
-            <div id="admin-message"></div>
-        </section>
+      <section id="admin-section" class="section active">
+        <h1>Add New Blog</h1>
+        <form id="admin-form" onsubmit="return false;">
+          <input
+            type="text"
+            id="title"
+            placeholder="Blog Title"
+            required
+          /><br />
+          <textarea
+            id="description"
+            placeholder="Blog Description"
+            required
+          ></textarea
+          ><br />
+          <input
+            type="text"
+            id="category"
+            placeholder="Category"
+            required
+          /><br />
+          <input type="date" id="date" required /><br />
+          <input type="url" id="url" placeholder="Blog URL" /><br />
+          <input
+            type="text"
+            id="publishedBy"
+            placeholder="Published By"
+          /><br />
+          <input type="text" id="author" placeholder="Author" /><br />
+          <button type="button" id="addBlogBtn">Add Blog</button>
+        </form>
+        <div id="admin-message"></div>
+      </section>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
